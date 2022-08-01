@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+import sys
+import cylinder
+import usage 
+import sphere
+import cone
+
+#from typing import Coroutine
+
+def handling_error():
+    if (len(sys.argv) != 9):
+        sys.exit(84)
+    for i in range(1, 9, 1):
+        if (str.isnumeric(sys.argv[i]) == False):
+            if (sys.argv[i][0] != '-'):
+                sys.exit(84)
+    opt = float(sys.argv[1])
+    xp = float(sys.argv[2])
+    yp = float(sys.argv[3])
+    zp = float(sys.argv[4])
+    xv = float(sys.argv[5])
+    yv = float(sys.argv[6])
+    zv = float(sys.argv[7])
+    p = float(sys.argv[8])
+    if (opt == 3 or opt == 2):
+        if (p <= 0 or p > 90):
+            sys.exit(84)
+    if xp == xv and yp == yv and zp == zv:
+        sys.exit(84)
+    if (sys.argv[1] != '1' and sys.argv[1] != '2' and sys.argv[1] != '3'):
+        sys.exit(84)
+
+def insertion():
+    if (len(sys.argv) == 2):
+        if (sys.argv[1] == "-h"):
+            usage.usage()
+            sys.exit(0)
+    if handling_error() == 84:
+        sys.exit(84)
+    if (sys.argv[1] == '1'):
+        if sphere.sphere() == 84:
+            sys.exit(84)
+    if (sys.argv[1] == '2'):
+        if cylinder.cylinder() == 84:
+            sys.exit(84)
+    if (sys.argv[1] == '3'):
+        if cone.cone() == 84:
+            sys.exit(84)
+    sys.exit(0)
+
+insertion()
