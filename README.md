@@ -18,6 +18,11 @@ in this project are:</p>
   - O-centered spheres,
   - Cylinders of revolution around Z axis,
   - Cones of revolution around Z axis whose apex is O.
+
+
+<h2> Instalation </h2>
+
+      git clone git@github.com:Yahia-Abdchafee-ADAM/104intersection.git 
   
 <h2> Usage </h2>
 
